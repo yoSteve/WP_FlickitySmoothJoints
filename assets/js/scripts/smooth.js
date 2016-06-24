@@ -27,8 +27,8 @@ jQuery(function(){
             }
         },
         onAfter: function(url, $container, $content) {
-            // Use this to re initialize any plugins that aren't working correctly
-            console.log("So Smooth...");
+            // Use this to re-initialize any plugins that aren't working correctly on pageload
+            jQuery('.carousel').flickity();
         }
     },
     smoothState = jQuery('#smoothBody').smoothState(options).data('smoothState');

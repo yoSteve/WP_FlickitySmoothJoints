@@ -47,5 +47,7 @@ if ( $slider_query->have_posts() ) { ?>
     </div>
 <?php } ?>
 <script type="text/javascript">
-    jQuery('.carousel').flickity();
+    // jQuery(document).ready(function() {
+    //     jQuery('.carousel').flickity();
+    // } );
 </script>

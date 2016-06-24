@@ -35,7 +35,8 @@ require_once(get_template_directory().'/assets/functions/cpts/custom-post-types.
 // Register Built-in Plugins
 require_once(get_template_directory().'/assets/plugins/add-plugins.php');
 
-// Register Built-in plugins
+// Register Custom functions
+require_once(get_template_directory().'/assets/functions/custom-functions.php');
 
 // Remove 4.2 Emoji Support
 // require_once(get_template_directory().'/assets/functions/disable-emoji.php');

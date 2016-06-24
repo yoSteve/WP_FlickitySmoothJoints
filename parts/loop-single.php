@@ -1,4 +1,4 @@
-<h2>loop-single.php template</h2>
+<h2>parts/loop-single.php template</h2>
 <article id="post-<?php the_ID(); ?>" <?php post_class(''); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 
 	<header class="article-header">
