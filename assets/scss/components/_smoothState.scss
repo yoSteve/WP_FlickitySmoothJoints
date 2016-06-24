@@ -1,0 +1,77 @@
+/*
+* Animation Keyframes
+*/
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 100%, 0);
+    }
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
+@keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        transform: translate3d(100%, 0, 0);
+    }
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
+@keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        transform: translate3d(-100%, 0, 0);
+    }
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/*
+* Animation Classes
+*/
+
+.smoothDaddy {
+    /** Basic styles for an animated element */
+    .smoothBaby {
+        animation-duration: 0.25s;
+        transition-timing-function: ease-in;
+        animation-fill-mode: both;
+    }
+    /** An element that fades in */
+    .smooth-fadeIn {
+        animation-name: fadeIn;
+    }
+    /** An element that fades in and slides up */
+    .smooth-fadeInUp {
+        animation-name: fadeInUp;
+    }
+    /** An element that fades in and slides from the right */
+    .smooth-fadeInRight {
+        animation-name: fadeInRight;
+    }
+    .smooth-fadeInLeft {
+        animation-name: fadeInLeft;
+    }
+    /** Reverse "exit" animations */
+    &.is-exiting {
+        .smoothBaby {
+          animation-direction: alternate-reverse;
+        }
+    }
+}
