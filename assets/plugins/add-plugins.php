@@ -7,4 +7,10 @@ if( !class_exists('Acf') ) {
     include_once('acf/acf.php' );
 }
 
+// Include Github Updater
+if( !class_exists('Fragen\\GitHub_Updater\\Base') ) {
+    define( 'GitHub_Updater' , false ); // change this to TRUE to hide from client
+    include_once('github-updater/github-updater.php' );
+}
+
 ?>
