@@ -24,8 +24,8 @@ JointsWP comes pre-baked with all of the great features that are found in the Fo
 ### What tools do I need to use JointsWP?
 You can use whatever you want – seriously. While the Sass version comes with Bower and Gulp support out of the box, you aren’t required to use those by any means. You can use CodeKit, Grunt, Compass or nothing at all. It’s completely up to you how you decide to build you theme – JointsWP won’t get in the way of your workflow.
 
-Find out more here: www.jointswp.com  
-Demo: www.jointswp.com/demo
+Find out more here: http://www.jointswp.com  
+Demo: http://www.jointswp.com/demo
 
 ### Getting Started With Gulp
 - Install [node.js](https://nodejs.org).
@@ -34,5 +34,3 @@ Demo: www.jointswp.com/demo
 - Run gulp to confirm everything is working
 
 [Read more about how Gulp is used with JointsWP.](http://jointswp.com/docs/gulp/)
-
-

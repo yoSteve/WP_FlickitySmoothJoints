@@ -4113,6 +4113,10 @@ POSTS & CONTENT STYLES
 /*********************
 IMAGE GALLERY STYLES
 *********************/
+.gallery dl {
+  display: table-cell;
+  padding: 0 0.5rem; }
+
 /*********************
 PAGE NAVI STYLES
 *********************/

@@ -43,7 +43,7 @@ class Install extends Base {
 		require_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
 		$this->install( $type );
 
-		wp_enqueue_script( 'ghu-install', get_template_directory_uri().'/assets/plugins/github-updater'. '/js/ghu_install.js' ), array(), false, true );
+		wp_enqueue_script( 'ghu-install', get_template_directory_uri().'/assets/plugins/github-updater'. '/js/ghu_install.js', array(), false, true );
 	}
 
 	/**
