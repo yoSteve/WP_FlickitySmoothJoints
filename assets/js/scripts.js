@@ -1,4 +1,6 @@
-jQuery(document).foundation();
+// initialized in smooth.js under SmoothState.onAfter()
+// jQuery(document).foundation();
+
 // Activate SmoothState
 jQuery(function(){
   'use strict';
@@ -16,6 +18,7 @@ jQuery(function(){
                 $container.addClass('is-exiting');
                 // Restart your animation
                 smoothState.restartCSSAnimations();
+                // jQuery('#featured-hero .carousel').hide();
             }
         },
         onReady: {
@@ -29,6 +32,7 @@ jQuery(function(){
         },
         onAfter: function(url, $container, $content) {
             // Use this to re-initialize any plugins that aren't working correctly on pageload
+            jQuery(document).foundation();
             jQuery('.carousel').flickity();
         }
     },
@@ -41,7 +45,8 @@ and Foundation play nice together.
 */
 
 jQuery(document).ready(function() {
-
+    // initialize Foundation
+    jQuery(document).foundation();
     // Remove empty P tags created by WP inside of Accordion and Orbit
     jQuery('.accordion p:empty, .orbit p:empty').remove();
 

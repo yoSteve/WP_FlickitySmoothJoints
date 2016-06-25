@@ -6,15 +6,18 @@
 
 	<div id="content">
 
-		<?php // Uncomment to use Featured Image.
-		   // get_template_part( 'parts/featured-image' );
-		   // echo "Doing featured image";
-		?>
+		<div class="smoothBaby smooth-fadeInDown">
 
-		<?php // Uncomment to use Banner Slider
-			$banner_slide_tag = 'homepage';
-			include( locate_template( 'parts/flickity-banner.php' ) );
-		?>
+			<?php // Uncomment to use Featured Image.
+			   // get_template_part( 'template-parts/featured-image' );
+			   // echo "Doing featured image";
+			?>
+
+			<?php // Uncomment to use Banner Slider
+				$banner_slide_tag = 'homepage';
+				include( locate_template( 'parts/flickity-banner.php' ) );
+			?>
+		</div>
 
 		<div id="inner-content" class="row">
 

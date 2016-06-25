@@ -30,10 +30,10 @@ switch ($content_alignment) {
 
 <div class="carousel-cell" style="background-image:url('<?php echo $image_url; ?>');">
     <div class='<?php echo $columns; ?>'>
-        <h2><?php the_title(); ?></h2>
-        <p><?php the_content(); ?></p>
+        <h2 style="z-index:2;"><?php the_title(); ?></h2>
+        <p style="z-index:2;"><?php the_content(); ?></p>
         <?php if ( !empty($button_label) ) {
-            echo '<a class="action button" href="'.$button_url.'">'.$button_label.'</a>';
+            echo '<a class="action button" href="'.$button_url.'" style="z-index:2;">'.$button_label.'</a>';
         } ?>
     </div>
 </div>

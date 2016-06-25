@@ -3943,6 +3943,14 @@ table.hover tr:nth-of-type(even):hover {
     opacity: 1;
     transform: none; } }
 
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0); }
+  100% {
+    opacity: 1;
+    transform: none; } }
+
 @keyframes fadeInRight {
   0% {
     opacity: 0;
@@ -3966,7 +3974,9 @@ table.hover tr:nth-of-type(even):hover {
   /** Basic styles for an animated element */
   /** An element that fades in */
   /** An element that fades in and slides up */
+  /** An element that fades in and slides down */
   /** An element that fades in and slides from the right */
+  /** An element that fades in and slides from the left */
   /** Reverse "exit" animations */ }
   .smoothDaddy .smoothBaby {
     animation-duration: 0.25s;
@@ -3976,6 +3986,8 @@ table.hover tr:nth-of-type(even):hover {
     animation-name: fadeIn; }
   .smoothDaddy .smooth-fadeInUp {
     animation-name: fadeInUp; }
+  .smoothDaddy .smooth-fadeInDown {
+    animation-name: fadeInDown; }
   .smoothDaddy .smooth-fadeInRight {
     animation-name: fadeInRight; }
   .smoothDaddy .smooth-fadeInLeft {

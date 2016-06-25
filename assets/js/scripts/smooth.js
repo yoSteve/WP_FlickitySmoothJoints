@@ -15,6 +15,7 @@ jQuery(function(){
                 $container.addClass('is-exiting');
                 // Restart your animation
                 smoothState.restartCSSAnimations();
+                // jQuery('#featured-hero .carousel').hide();
             }
         },
         onReady: {
@@ -28,6 +29,7 @@ jQuery(function(){
         },
         onAfter: function(url, $container, $content) {
             // Use this to re-initialize any plugins that aren't working correctly on pageload
+            jQuery(document).foundation();
             jQuery('.carousel').flickity();
         }
     },

@@ -21,6 +21,16 @@
         transform: none;
     }
 }
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, -100%, 0);
+    }
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
 @keyframes fadeInRight {
     0% {
         opacity: 0;
@@ -61,10 +71,15 @@
     .smooth-fadeInUp {
         animation-name: fadeInUp;
     }
+    /** An element that fades in and slides down */
+    .smooth-fadeInDown {
+        animation-name: fadeInDown;
+    }
     /** An element that fades in and slides from the right */
     .smooth-fadeInRight {
         animation-name: fadeInRight;
     }
+    /** An element that fades in and slides from the left */
     .smooth-fadeInLeft {
         animation-name: fadeInLeft;
     }

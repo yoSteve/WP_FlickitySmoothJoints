@@ -1,5 +1,5 @@
 <h2>sidebar.php template</h2>
-<div id="sidebar1" class="sidebar large-4 medium-4 columns" role="complementary">
+<div id="sidebar1" class="sidebar large-4 medium-4 columns smoothBaby smooth-fadeInRight" role="complementary">
 
 	<?php if ( is_active_sidebar( 'sidebar1' ) ) : ?>
 
