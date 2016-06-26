@@ -8,7 +8,6 @@
 * specific tags, otherwise slider will fall back to ALL Banner-Slides.
 *
 */
-
 if ( $banner_slide_tag ) {
     $args = array(
         'post_type'			=>	'banner_slide',
@@ -26,7 +25,6 @@ if ( $banner_slide_tag ) {
     );
 }
 $slider_query = new WP_Query($args);
-
 if ( $slider_query->have_posts() ) { ?>
     <div id="featured-hero" role="banner">
 
@@ -46,8 +44,3 @@ if ( $slider_query->have_posts() ) { ?>
 
     </div>
 <?php } ?>
-<script type="text/javascript">
-    // jQuery(document).ready(function() {
-    //     jQuery('.carousel').flickity();
-    // } );
-</script>
