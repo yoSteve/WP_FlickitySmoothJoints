@@ -3,7 +3,7 @@
 *
 * Template Part for inserting a Flickity Banner-Slider
 *
-* Call it with "include( locate_template( 'template-parts/flickity-banner.php' ) );"
+* Call it with "include( locate_template( 'parts/flickity-banner.php' ) );"
 * Create a $banner_slide_tag variable in the parent template to call slides with
 * specific tags, otherwise slider will fall back to ALL Banner-Slides.
 *

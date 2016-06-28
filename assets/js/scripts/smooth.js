@@ -6,7 +6,7 @@ jQuery(function(){
         prefetch: true,
         cacheLength: 2,
         anchors: 'a',
-        blacklist: '.notSmooth',
+        blacklist: '.notSmooth, .menu-item-has-children>a',
         forms: 'form',
         onStart: {
             duration: 250, // Duration of our animation

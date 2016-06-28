@@ -3,7 +3,7 @@
 *
 * Template Part for inserting a Flickity Gallery Modal
 *
-* Call it with "include( locate_template( 'template-parts/flickity-gallery.php' ) );"
+* Call it with "include( locate_template( 'parts/flickity-gallery.php' ) );"
 * Create a $gallery_tag variable in the parent template to call slides with
 * specific tags, otherwise slider will fall back to ALL images in Media Library.
 *
@@ -31,22 +31,35 @@ $gallery_query = new WP_Query($args); ?>
 
 <div class="gallery grid">
 
-    <?php while ( $slider_query->have_posts() ) {
-        $gallery_query->the_post();
-        $thumb_url  = ?????;
-        $alt_text   = "fetch string from image meta"
-        $index = 0; ?>
-        <a id="slide-<?php echo $index; ?>" href="#" data-reveal-id="galleryModal">
-            <img src="<?php echo $thumb_url; ?>" alt="<?php echo $alt_text; ?>" />
-        </a>
-        <?php $index++;
-    } ?>
+    <?php if ($gallery_query->have_posts()) {
+        $index = 0;
+        while ( $gallery_query->have_posts() ) {
+            $gallery_query->the_post();
+            $thumb_url  = wp_get_attachment_thumb_url( $post->ID );
+            $alt_text   = "fetch string from image meta"; ?>
+            <a id="slide-<?php echo $index; ?>" href="#" data-reveal-id="galleryModal">
+                <img src="<?php echo $thumb_url; ?>" alt="<?php echo $alt_text; ?>" />
+                <!-- <div class="clearfix"></div> -->
+            </a>
+            <?php $index++;
+        }
+    }   ?>
+</div>
 
+<p><a data-open="exampleModal1">Click me for a modal</a></p>
 
+<div class="reveal" id="exampleModal1" data-reveal>
+    <h1>Awesome. I Have It.</h1>
+    <p class="lead">Your couch. It is mine.</p>
+    <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+    </button>
 </div>
 
 
-<div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+
+<!-- <div id="myModal" class="reveal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
 
     <div class="gallery gallery-main js-flickity" data-flickity-options='{
         "wrapAround": "true",
@@ -77,4 +90,4 @@ $gallery_query = new WP_Query($args); ?>
         contain: true,
         pageDots: false
     });
-</script>
+</script> -->

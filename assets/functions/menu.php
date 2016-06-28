@@ -18,7 +18,7 @@ function joints_top_nav() {
         'fallback_cb' => false,                         // Fallback function (see below)
         'walker' => new Topbar_Menu_Walker()
     ));
-} 
+}
 
 // Big thanks to Brett Mason (https://github.com/brettsmason) for the awesome walker
 class Topbar_Menu_Walker extends Walker_Nav_Menu {
@@ -39,7 +39,7 @@ function joints_off_canvas_nav() {
         'fallback_cb' => false,                         // Fallback function (see below)
         'walker' => new Off_Canvas_Menu_Walker()
     ));
-} 
+}
 
 class Off_Canvas_Menu_Walker extends Walker_Nav_Menu {
     function start_lvl(&$output, $depth = 0, $args = Array() ) {
@@ -68,7 +68,7 @@ function joints_main_nav_fallback() {
 		'include'     => '',
 		'exclude'     => '',
 		'echo'        => true,
-        'link_before' => '',                           // Before each link
+        'link_before' => 'butts',                           // Before each link
         'link_after' => ''                             // After each link
 	) );
 }
