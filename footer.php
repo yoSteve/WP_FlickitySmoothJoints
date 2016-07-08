@@ -11,6 +11,7 @@
 						</div> <!-- end #inner-footer -->
 					</footer> <!-- end .footer -->
 				</div>  <!-- end .main-content -->
+				</div> <!-- end #smoothBody -->
 			</div> <!-- end .off-canvas-wrapper-inner -->
 		</div> <!-- end .off-canvas-wrapper -->
 	</div> <!-- end #defactoBody -->

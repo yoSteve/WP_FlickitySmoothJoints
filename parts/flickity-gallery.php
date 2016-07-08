@@ -28,7 +28,54 @@ if ( $gallery_tag ) {
     );
 }
 $gallery_query = new WP_Query($args); ?>
+<style media="screen">
+/* external css: flickity.css */
 
+* {
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
+}
+
+body { font-family: sans-serif; }
+
+.gallery {
+background: #FAFAFA;
+margin-bottom: 40px;
+}
+
+.gallery-cell {
+width: 66%;
+height: 200px;
+margin-right: 10px;
+background: #8C8;
+counter-increment: gallery-cell;
+}
+
+/* cell number */
+.gallery-cell:before {
+display: block;
+text-align: center;
+content: counter(gallery-cell);
+line-height: 200px;
+font-size: 80px;
+color: white;
+}
+
+.gallery-nav .gallery-cell {
+height: 80px;
+width: 100px;
+}
+
+.gallery-nav .gallery-cell:before {
+font-size: 50px;
+line-height: 80px;
+}
+
+.gallery-nav .gallery-cell.is-nav-selected {
+background: #ED2;
+}
+
+</style>
 <div class="gallery grid">
 
     <?php if ($gallery_query->have_posts()) {
@@ -37,7 +84,7 @@ $gallery_query = new WP_Query($args); ?>
             $gallery_query->the_post();
             $thumb_url  = wp_get_attachment_thumb_url( $post->ID );
             $alt_text   = "fetch string from image meta"; ?>
-            <a id="slide-<?php echo $index; ?>" href="#" data-reveal-id="galleryModal">
+            <a id="slide-<?php echo $index; ?>" class="notSmooth" data-open="galleryModal">
                 <img src="<?php echo $thumb_url; ?>" alt="<?php echo $alt_text; ?>" />
                 <!-- <div class="clearfix"></div> -->
             </a>
@@ -46,48 +93,51 @@ $gallery_query = new WP_Query($args); ?>
     }   ?>
 </div>
 
-<p><a data-open="exampleModal1">Click me for a modal</a></p>
-
-<div class="reveal" id="exampleModal1" data-reveal>
-    <h1>Awesome. I Have It.</h1>
-    <p class="lead">Your couch. It is mine.</p>
-    <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
-    <button class="close-button" data-close aria-label="Close modal" type="button">
-    <span aria-hidden="true">&times;</span>
-    </button>
-</div>
+<p><a class="notSmooth" data-open="galleryModal">Click me for a modal</a></p>
 
 
+<div id="galleryModal" class="reveal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
 
-<!-- <div id="myModal" class="reveal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
-
-    <div class="gallery gallery-main js-flickity" data-flickity-options='{
+    <div id="galleryMain" class="gallery gallery-main js-flickity" data-flickity-options='{
         "wrapAround": "true",
         "autoPlay": "true",
         "setGallerySize": "true",
         "prevNextButtons": "false"
     }'>
-        <div class="gallery-cell"></div>
+        <!-- [REPEAT with LARGE IMAGE] -->
+        <?php foreach ($variable as $key => $value) {
+            # code...
+        } ?>
+        <div class="gallery-cell"><p>ONE</p></div>
+        <div class="gallery-cell"><p>TWO</p></div>
+        <div class="gallery-cell"><p>THREE</p></div>
     </div>
 
-    <div class="gallery gallery-nav js-flickity" data-flickity-options='{
+    <div id="galleryNav" class="gallery gallery-nav js-flickity" data-flickity-options='{
         "asNavFor": ".gallery-main",
         "contain": true,
         "pageDots": false
     }'>
-        <div class="gallery-cell"></div>
+        <!-- [REPEAT with THUMB] -->
+        <div class="gallery-cell"><p>ONE</p></div>
+        <div class="gallery-cell"><p>TWO</p></div>
+        <div class="gallery-cell"><p>THREE</p></div>
     </div>
 
-    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+        <span aria-hidden="true">&times;</span>
+    </button>
 </div>
 
 <script type="text/javascript">
-    // 1st carousel, main
-    jQuery('.carousel-main').flickity();
-    // 2nd carousel, navigation
-    jQuery('.carousel-nav').flickity({
-        asNavFor: '.carousel-main',
-        contain: true,
-        pageDots: false
+    jQuery(document).ready(function() {
+        // 1st gallery, main
+        jQuery('#galleryMain.gallery-main').flickity();
+        // 2nd gallery, navigation
+        jQuery('#galleryNav.gallery-nav').flickity({
+            asNavFor: '.gallery-main',
+            contain: true,
+            pageDots: false
+        });
     });
-</script> -->
+</script>
