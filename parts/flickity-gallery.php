@@ -27,117 +27,99 @@ if ( $gallery_tag ) {
         'posts_per_page'	=>	-1,
     );
 }
+wp_reset_postdata();
 $gallery_query = new WP_Query($args); ?>
-<style media="screen">
-/* external css: flickity.css */
 
-* {
--webkit-box-sizing: border-box;
-box-sizing: border-box;
-}
-
-body { font-family: sans-serif; }
-
-.gallery {
-background: #FAFAFA;
-margin-bottom: 40px;
-}
-
-.gallery-cell {
-width: 66%;
-height: 200px;
-margin-right: 10px;
-background: #8C8;
-counter-increment: gallery-cell;
-}
-
-/* cell number */
-.gallery-cell:before {
-display: block;
-text-align: center;
-content: counter(gallery-cell);
-line-height: 200px;
-font-size: 80px;
-color: white;
-}
-
-.gallery-nav .gallery-cell {
-height: 80px;
-width: 100px;
-}
-
-.gallery-nav .gallery-cell:before {
-font-size: 50px;
-line-height: 80px;
-}
-
-.gallery-nav .gallery-cell.is-nav-selected {
-background: #ED2;
-}
-
-</style>
+<h1>parts/flickity-gallery.php</h1>
 <div class="gallery grid">
 
     <?php if ($gallery_query->have_posts()) {
         $index = 0;
+        $ids_array = array();
         while ( $gallery_query->have_posts() ) {
             $gallery_query->the_post();
             $thumb_url  = wp_get_attachment_thumb_url( $post->ID );
             $alt_text   = "fetch string from image meta"; ?>
-            <a id="slide-<?php echo $index; ?>" class="notSmooth" data-open="galleryModal">
+            <a id="thumb-<?php echo $index; ?>" class="clickable thumb notSmooth" data-open="galleryModal">
                 <img src="<?php echo $thumb_url; ?>" alt="<?php echo $alt_text; ?>" />
                 <!-- <div class="clearfix"></div> -->
             </a>
-            <?php $index++;
-        }
-    }   ?>
-</div>
-
-<p><a class="notSmooth" data-open="galleryModal">Click me for a modal</a></p>
-
-
-<div id="galleryModal" class="reveal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
-
-    <div id="galleryMain" class="gallery gallery-main js-flickity" data-flickity-options='{
-        "wrapAround": "true",
-        "autoPlay": "true",
-        "setGallerySize": "true",
-        "prevNextButtons": "false"
-    }'>
-        <!-- [REPEAT with LARGE IMAGE] -->
-        <?php foreach ($variable as $key => $value) {
-            # code...
+            <?php $ids_array[] = $post->ID;
+            $index++;
         } ?>
-        <div class="gallery-cell"><p>ONE</p></div>
-        <div class="gallery-cell"><p>TWO</p></div>
-        <div class="gallery-cell"><p>THREE</p></div>
-    </div>
 
-    <div id="galleryNav" class="gallery gallery-nav js-flickity" data-flickity-options='{
-        "asNavFor": ".gallery-main",
-        "contain": true,
-        "pageDots": false
-    }'>
-        <!-- [REPEAT with THUMB] -->
-        <div class="gallery-cell"><p>ONE</p></div>
-        <div class="gallery-cell"><p>TWO</p></div>
-        <div class="gallery-cell"><p>THREE</p></div>
-    </div>
+        <p><a class="notSmooth" data-open="galleryModal">Click me for a modal</a></p>
 
-    <button class="close-button" data-close aria-label="Close modal" type="button">
-        <span aria-hidden="true">&times;</span>
-    </button>
+
+        <div id="galleryModal" class="reveal large" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+
+            <div id="galleryMain" class="carousel carousel-main">
+
+                <?php $index = 0;
+                foreach ($ids_array as $id) {
+                    $thumb_url  = wp_get_attachment_image_src( $id, $size = 'full' ); ?>
+                    <div id="slide-<?php echo $index; ?>" class="carousel-cell" style="background-image: url('<?php echo $thumb_url[0]; ?>');">
+                        <!-- <img src="<?php echo $thumb_url[0]; ?>" alt="" /> -->
+                    </div>
+                <?php $index++;
+                } ?>
+
+            </div>
+
+            <div id="galleryNav" class="carousel carousel-nav">
+
+                <?php $index = 0;
+                foreach ($ids_array as $id) {
+                    $thumb_url  = wp_get_attachment_thumb_url( $id ); ?>
+                    <div class="carousel-cell">
+                        <img id="nav-<?php echo $index; ?>" src="<?php echo $thumb_url; ?>" alt="" />
+                    </div>
+                <?php $index++;
+                } ?>
+            </div>
+
+            <button class="close-button" data-close aria-label="Close modal" type="button">
+                <span aria-hidden="true">&times;</span>
+            </button>
+
+        </div> <!-- /#galleryModal -->
+
+    <?php } // end if   ?>
 </div>
+
 
 <script type="text/javascript">
     jQuery(document).ready(function() {
-        // 1st gallery, main
-        jQuery('#galleryMain.gallery-main').flickity();
-        // 2nd gallery, navigation
-        jQuery('#galleryNav.gallery-nav').flickity({
-            asNavFor: '.gallery-main',
-            contain: true,
-            pageDots: false
+        var clickedIndex = 0;
+        jQuery('a.clickable.thumb').on('click', function() {
+            clickedIndex = jQuery(this).index();
+        });
+        jQuery('#galleryModal').on('open.zf.reveal', function() {
+            // 1st gallery, main
+            jQuery('#galleryMain.carousel-main').flickity({
+                wrapAround: true,
+                autoPlay: false,
+                setGallerySize: true,
+                prevNextButtons: true,
+                imagesLoaded: false,
+                percentPosition: false,
+                cellAlign: "center",
+                initialIndex: clickedIndex,
+            });
+            // 2nd gallery, navigation
+            jQuery('#galleryNav.carousel-nav').flickity({
+                asNavFor: "#galleryMain.carousel-main",
+                contain: true,
+                pageDots: false,
+                imagesLoaded: true,
+                percentPosition: false,
+                cellAlign: "center",
+            });
+        });
+        jQuery('#galleryModal').on('closed.zf.reveal',function() {
+            jQuery('#galleryMain.carousel-main').flickity('destroy');
+            jQuery('#galleyrNav.carousel-nav').flickity('destroy');
         });
     });
+
 </script>
