@@ -3909,18 +3909,23 @@ table.hover tr:nth-of-type(even):hover {
   #featured-hero {
     height: 25rem; } }
 
-#galleryMain .carousel .flickity-viewport {
-  position: absolute;
-  width: 100%;
-  min-height: 25rem;
-  height: auto; }
+#galleryModal {
+  width: 90%;
+  height: 90%; }
 
-#galleryMain .carousel-cell {
-  height: 100%;
-  width: 100%;
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat; }
+#galleryMain {
+  height: 35rem; }
+  #galleryMain .carousel .flickity-viewport {
+    position: absolute;
+    min-height: 25rem;
+    height: 100%;
+    transition: height 250ms; }
+  #galleryMain .carousel-cell {
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat; }
 
 #galleryNav {
   margin-top: 2rem; }
@@ -3928,7 +3933,10 @@ table.hover tr:nth-of-type(even):hover {
     height: 8rem; }
     #galleryNav .flickity-viewport .carousel-cell {
       height: 8rem;
-      width: 8rem; }
+      width: 8rem;
+      border: 2px solid white; }
+      #galleryNav .flickity-viewport .carousel-cell.is-nav-selected {
+        border-color: yellow; }
 
 #featured-hero .carousel {
   height: 25rem; }

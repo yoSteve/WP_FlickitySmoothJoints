@@ -5,7 +5,7 @@
 *
 * Call it with "include( locate_template( 'parts/flickity-gallery.php' ) );"
 * Create a $gallery_tag variable in the parent template to call slides with
-* specific tags, otherwise slider will fall back to ALL images in Media Library.
+* of images with specific tags, otherwise slider will fall back to ALL images in Media Library.
 *
 */
 
@@ -47,9 +47,6 @@ $gallery_query = new WP_Query($args); ?>
             <?php $ids_array[] = $post->ID;
             $index++;
         } ?>
-
-        <p><a class="notSmooth" data-open="galleryModal">Click me for a modal</a></p>
-
 
         <div id="galleryModal" class="reveal large" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
 
@@ -101,14 +98,16 @@ $gallery_query = new WP_Query($args); ?>
                 autoPlay: false,
                 setGallerySize: true,
                 prevNextButtons: true,
-                imagesLoaded: false,
+                imagesLoaded: true,
                 percentPosition: false,
                 cellAlign: "center",
                 initialIndex: clickedIndex,
+                adaptiveHeight: true,
             });
             // 2nd gallery, navigation
             jQuery('#galleryNav.carousel-nav').flickity({
                 asNavFor: "#galleryMain.carousel-main",
+                draggable: true,
                 contain: true,
                 pageDots: false,
                 imagesLoaded: true,

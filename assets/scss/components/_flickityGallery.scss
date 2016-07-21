@@ -1,20 +1,18 @@
 // Styles for Modal which houses Gallery
 #galleryModal {
-    // width: 90%;
-    // height: 90%;
+    width: 90%;
+    height: 90%;
 }
 
 // Styles for Gallery inside modal styles
 #galleryMain {
-    // &.carousel {
-    //     padding-bottom: 33%;
-    // }
-    // /* viewport inherit size from carousel */
+    height: 35rem;
     .carousel .flickity-viewport {
         position: absolute;
-        width: 100%;
+        // width: 100%;
         min-height: 25rem;
-        height: auto;
+        height: 100%;
+        transition: height 250ms;
     }
     // /* cell inherit height from carousel */
     .carousel-cell {
@@ -23,10 +21,6 @@
       background-position: center;
       background-size: contain;
       background-repeat: no-repeat;
-        // img {
-        //     min-width: 10rem;
-        //     width: 100%;
-        // }
     }
 }
 #galleryNav {
@@ -36,6 +30,10 @@
         .carousel-cell {
             height: 8rem;
             width: 8rem;
+            border: 2px solid white;
+            &.is-nav-selected {
+                border-color: yellow;
+            }
         }
     }
 }
