@@ -9,7 +9,7 @@ function site_scripts() {
   wp_enqueue_style( 'flickity-css', get_template_directory_uri() . '/node_modules/flickity/css/flickity.css', array(), '', 'all' );
 
   // Add in SmoothState
-  wp_enqueue_script('smoothState', get_template_directory_uri() . '/node_modules/smoothstate/jquery.smoothState.min.js', array ('jquery'), null, true);
+  wp_enqueue_script('smoothState', get_template_directory_uri() . '/node_modules/smoothstate/jquery.smoothState.min.js', array ('jquery', 'flickity', 'foundation-js'), null, true);
 
   // Include FontAwesome
     wp_enqueue_style( 'FontAwesome', get_template_directory_uri() . '/vendor/font-awesome-4.6.3/css/font-awesome.min.css', array(), '', 'all' );
@@ -22,8 +22,11 @@ function site_scripts() {
 
     // Adding Foundation scripts file in the footer
     wp_enqueue_script( 'foundation-js', get_template_directory_uri() . '/assets/js/foundation.js', array( 'jquery' ), '6.2', true );
+    
+    // uncomment the following line to load Foundation via CDN instead
+    // wp_enqueue_script('foundation-js', 'https://cdn.jsdelivr.net/foundation/6.2.1/foundation.min.js', array('jquery'), '6.2', true);
 
-        // Register main stylesheet
+    // Register main stylesheet
     wp_enqueue_style( 'site-css', get_template_directory_uri() . '/assets/css/style.css', array(), '', 'all' );
 
     // Comment reply script for threaded comments

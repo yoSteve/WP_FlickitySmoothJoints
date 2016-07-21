@@ -3909,6 +3909,35 @@ table.hover tr:nth-of-type(even):hover {
   #featured-hero {
     height: 25rem; } }
 
+#galleryModal {
+  width: 90%;
+  height: 90%; }
+
+#galleryMain {
+  height: 35rem; }
+  #galleryMain .carousel .flickity-viewport {
+    position: absolute;
+    min-height: 25rem;
+    height: 100%;
+    transition: height 250ms; }
+  #galleryMain .carousel-cell {
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat; }
+
+#galleryNav {
+  margin-top: 2rem; }
+  #galleryNav .flickity-viewport {
+    height: 8rem; }
+    #galleryNav .flickity-viewport .carousel-cell {
+      height: 8rem;
+      width: 8rem;
+      border: 2px solid white; }
+      #galleryNav .flickity-viewport .carousel-cell.is-nav-selected {
+        border-color: yellow; }
+
 #featured-hero .carousel {
   height: 25rem; }
 

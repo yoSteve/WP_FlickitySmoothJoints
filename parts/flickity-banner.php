@@ -3,12 +3,11 @@
 *
 * Template Part for inserting a Flickity Banner-Slider
 *
-* Call it with "include( locate_template( 'template-parts/flickity-banner.php' ) );"
+* Call it with "include( locate_template( 'parts/flickity-banner.php' ) );"
 * Create a $banner_slide_tag variable in the parent template to call slides with
 * specific tags, otherwise slider will fall back to ALL Banner-Slides.
 *
 */
-
 if ( $banner_slide_tag ) {
     $args = array(
         'post_type'			=>	'banner_slide',
@@ -26,7 +25,6 @@ if ( $banner_slide_tag ) {
     );
 }
 $slider_query = new WP_Query($args);
-
 if ( $slider_query->have_posts() ) { ?>
     <div id="featured-hero" role="banner">
 
@@ -46,8 +44,3 @@ if ( $slider_query->have_posts() ) { ?>
 
     </div>
 <?php } ?>
-<script type="text/javascript">
-    // jQuery(document).ready(function() {
-    //     jQuery('.carousel').flickity();
-    // } );
-</script>

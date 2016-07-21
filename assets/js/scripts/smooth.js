@@ -6,7 +6,7 @@ jQuery(function(){
         prefetch: true,
         cacheLength: 2,
         anchors: 'a',
-        blacklist: '.notSmooth',
+        blacklist: '.notSmooth, .menu-item-has-children>a',
         forms: 'form',
         onStart: {
             duration: 250, // Duration of our animation
@@ -31,6 +31,8 @@ jQuery(function(){
             // Use this to re-initialize any plugins that aren't working correctly on pageload
             jQuery(document).foundation();
             jQuery('.carousel').flickity();
+            // jQuery('#galleryMain.carousel-main').flickity();
+            // jQuery('#galleryNav.carousel-nav').flickity();
         }
     },
     smoothState = jQuery('#smoothBody').smoothState(options).data('smoothState');
