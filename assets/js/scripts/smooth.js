@@ -34,6 +34,7 @@ jQuery(function(){
             jQuery(document).foundation();
             jQuery('.carousel').flickity();
             addBlacklistClass();
+            scrollToHash();
         }
     },
     smoothState = jQuery('#smoothBody').smoothState(options).data('smoothState');
@@ -48,4 +49,18 @@ function addBlacklistClass() {
             jQuery( this ).addClass( 'notSmooth' );
         }
     });
+}
+
+// if there is a # in the address bar url, scroll to its place on the page (replicates expected behavior)
+
+function scrollToHash() {
+    var theHash = jQuery(window.location.hash);
+    if ( theHash.length !== 0 ) {
+        var topOffset = theHash.offset().top;
+        jQuery('body, html').animate({
+            scrollTop: (topOffset - 60 ),
+        }, {
+            duration: 250
+        });
+    }
 }
