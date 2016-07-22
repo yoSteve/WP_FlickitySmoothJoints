@@ -1,7 +1,7 @@
 Currently using Foundation 6.2.1
 
 ### What is Flickity?
-Easy to use and fun to flick, Flickity by Metafizzy makes flickable carouels, galleries, and sliders that are responsive and easy to implement, and feel lively and effortless. http://flickity.metafizzy.co/
+Easy to use and fun to flick, Flickity by Metafizzy makes flickable carousels, galleries, and sliders that are responsive and easy to implement, and feel lively and effortless. http://flickity.metafizzy.co/
 
 ### What is SmoothState?
 smoothState.js is a jQuery plugin that progressively enhances page loads to give us control over page transitions. If the user's browser doesn't have the required features, smoothState.js fades into the background and never runs. It provides hooks that can be used to choreograph how elements enter and exit the page during navigation. It uses the time the animations are running to fetch content via AJAX to inject into the page. https://github.com/miguel-perez/smoothState.js
