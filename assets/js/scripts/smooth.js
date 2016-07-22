@@ -1,3 +1,6 @@
+// blacklist appropriate a tags:
+addBlacklistClass();
+
 // Activate SmoothState
 jQuery(function(){
   'use strict';
@@ -15,7 +18,6 @@ jQuery(function(){
                 $container.addClass('is-exiting');
                 // Restart your animation
                 smoothState.restartCSSAnimations();
-                // jQuery('#featured-hero .carousel').hide();
             }
         },
         onReady: {
@@ -31,9 +33,19 @@ jQuery(function(){
             // Use this to re-initialize any plugins that aren't working correctly on pageload
             jQuery(document).foundation();
             jQuery('.carousel').flickity();
-            // jQuery('#galleryMain.carousel-main').flickity();
-            // jQuery('#galleryNav.carousel-nav').flickity();
+            addBlacklistClass();
         }
     },
     smoothState = jQuery('#smoothBody').smoothState(options).data('smoothState');
 });
+
+// add .notSmooth to all WP-links that shouldn't be smooth
+function addBlacklistClass() {
+    jQuery( 'a' ).each( function() {
+        if ( this.href.indexOf('/wp-admin/') !== -1 ||
+            this.href.indexOf('/wp-login.php') !== -1 ||
+            this.href.indexof('/wp-content/uploads/') !== -1 ) {
+            jQuery( this ).addClass( 'notSmooth' );
+        }
+    });
+}
