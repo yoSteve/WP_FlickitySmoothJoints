@@ -1,7 +1,7 @@
 // Styles for Modal which houses Gallery
 #galleryModal {
-    width: 90%;
-    height: 90%;
+    // width: 90%;
+    // height: 90%;
 }
 
 // Styles for Gallery inside modal styles
@@ -26,10 +26,10 @@
 #galleryNav {
     margin-top: 2rem;
     .flickity-viewport {
-        height: 8rem;
+        height: 6rem;
         .carousel-cell {
-            height: 8rem;
-            width: 8rem;
+            height: 6rem;
+            width: 6rem;
             border: 2px solid white;
             &.is-nav-selected {
                 border-color: yellow;

@@ -48,7 +48,7 @@ $gallery_query = new WP_Query($args); ?>
             $index++;
         } ?>
 
-        <div id="galleryModal" class="reveal large" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+        <div id="galleryModal" class="reveal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
 
             <div id="galleryMain" class="carousel carousel-main">
 

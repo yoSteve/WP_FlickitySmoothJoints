@@ -45,7 +45,7 @@ function addBlacklistClass() {
     jQuery( 'a' ).each( function() {
         if ( this.href.indexOf('/wp-admin/') !== -1 ||
             this.href.indexOf('/wp-login.php') !== -1 ||
-            this.href.indexof('/wp-content/uploads/') !== -1 ) {
+            this.href.indexOf('/wp-content/uploads/') !== -1 ) {
             jQuery( this ).addClass( 'notSmooth' );
         }
     });

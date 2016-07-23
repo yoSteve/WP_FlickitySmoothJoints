@@ -1,6 +1,22 @@
 // initialized in smooth.js under SmoothState.onAfter()
 // jQuery(document).foundation();
 
+// Launch reveal modal when wp-media link is clicked
+var ghostModalImage = jQuery('#ghostModal img');
+
+jQuery( 'a' ).on('click', function() {
+
+    if ( this.href.indexOf('/wp-content/uploads/') !== -1 && this.href.indexOf('.jpg') !== -1 || this.href.indexOf('.png') !== -1 || this.href.indexOf('.gif') !== -1 ) {
+        event.preventDefault();
+        var imageUrl = this.href;
+        jQuery.ajax(imageUrl)
+            .done(function(resp) {
+                ghostModalImage.attr('src', imageUrl);
+                jQuery('#ghostModal').foundation('open');
+            });
+    }
+});
+
 // blacklist appropriate a tags:
 addBlacklistClass();
 
@@ -37,6 +53,7 @@ jQuery(function(){
             jQuery(document).foundation();
             jQuery('.carousel').flickity();
             addBlacklistClass();
+            scrollToHash();
         }
     },
     smoothState = jQuery('#smoothBody').smoothState(options).data('smoothState');
@@ -47,10 +64,24 @@ function addBlacklistClass() {
     jQuery( 'a' ).each( function() {
         if ( this.href.indexOf('/wp-admin/') !== -1 ||
             this.href.indexOf('/wp-login.php') !== -1 ||
-            this.href.indexof('/wp-content/uploads/') !== -1 ) {
+            this.href.indexOf('/wp-content/uploads/') !== -1 ) {
             jQuery( this ).addClass( 'notSmooth' );
         }
     });
+}
+
+// if there is a # in the address bar url, scroll to its place on the page (replicates expected behavior)
+
+function scrollToHash() {
+    var theHash = jQuery(window.location.hash);
+    if ( theHash.length !== 0 ) {
+        var topOffset = theHash.offset().top;
+        jQuery('body, html').animate({
+            scrollTop: (topOffset - 60 ),
+        }, {
+            duration: 250
+        });
+    }
 }
 
 /*
