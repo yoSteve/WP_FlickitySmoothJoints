@@ -11,7 +11,17 @@
 	</section> <!-- end article section -->
 
 	<footer class="article-footer">
-
+		<?php
+			edit_post_link(
+				sprintf(
+					/* translators: %s: Name of current post */
+					__( 'Edit<span class="screen-reader-text"> "%s"</span>', 'jointswp' ),
+					get_the_title()
+				),
+				'<span class="edit-link">',
+				'</span>'
+			);
+		?>
 	</footer> <!-- end article footer -->
 
 	<?php comments_template(); ?>
