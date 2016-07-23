@@ -20,6 +20,17 @@
 	<footer class="article-footer">
 		<?php wp_link_pages( array( 'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'jointswp' ), 'after'  => '</div>' ) ); ?>
 		<p class="tags"><?php the_tags('<span class="tags-title">' . __( 'Tags:', 'jointswp' ) . '</span> ', ', ', ''); ?></p>
+		<?php
+			edit_post_link(
+				sprintf(
+					/* translators: %s: Name of current post */
+					__( 'Edit<span class="screen-reader-text"> "%s"</span>', 'jointswp' ),
+					get_the_title()
+				),
+				'<span class="edit-link">',
+				'</span>'
+			);
+		?>
 	</footer> <!-- end article footer -->
 
 	<?php comments_template(); ?>
