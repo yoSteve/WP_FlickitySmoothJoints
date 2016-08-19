@@ -28,7 +28,7 @@ $slider_query = new WP_Query($args);
 if ( $slider_query->have_posts() ) { ?>
     <div id="featured-hero" role="banner">
 
-        <div class="carousel js-flickity" data-flickity-options='{
+        <div class="banner carousel js-flickity" data-flickity-options='{
             "wrapAround": "true",
             "autoPlay": "true",
             "setGallerySize": "true",

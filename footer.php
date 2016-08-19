@@ -11,12 +11,12 @@
 						</div> <!-- end #inner-footer -->
 					</footer> <!-- end .footer -->
 
-					<div class="reveal" id="ghostModal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+					<!-- <div class="reveal" id="ghostModal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
 						<img src="#" />
 						<button class="close-button" data-close aria-label="Close modal" type="button">
 			                <span aria-hidden="true">&times;</span>
 			            </button>
-					</div>
+					</div> -->
 
 				</div>  <!-- end .main-content -->
 				</div> <!-- end #smoothBody -->

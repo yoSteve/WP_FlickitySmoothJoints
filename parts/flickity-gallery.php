@@ -86,12 +86,12 @@ $gallery_query = new WP_Query($args); ?>
 
 
 <script type="text/javascript">
-    jQuery(document).ready(function() {
         var clickedIndex = 0;
         jQuery('a.clickable.thumb').on('click', function() {
             clickedIndex = jQuery(this).index();
         });
         jQuery('#galleryModal').on('open.zf.reveal', function() {
+            console.log("Modal opening");
             // 1st gallery, main
             jQuery('#galleryMain.carousel-main').flickity({
                 wrapAround: true,
@@ -104,6 +104,7 @@ $gallery_query = new WP_Query($args); ?>
                 initialIndex: clickedIndex,
                 adaptiveHeight: true,
             });
+            console.log("Main loaded");
             // 2nd gallery, navigation
             jQuery('#galleryNav.carousel-nav').flickity({
                 asNavFor: "#galleryMain.carousel-main",
@@ -114,11 +115,17 @@ $gallery_query = new WP_Query($args); ?>
                 percentPosition: false,
                 cellAlign: "center",
             });
+            console.log("Nav Loaded");
+            var flktyMain = Flickity.data(jQuery('#galleryMain.carousel-main')[0]);
+            console.log("Number of cells (Main): " + flktyMain.cells.length);
+            var flktyNav = Flickity.data(jQuery('#galleryNav.carousel-nav')[0]);
+            console.log("Number of cells (Nav) : " + flktyNav.cells.length);
         });
+        // destroy Flickity when modal closes (allows clickedIndex to work on next opening)
         jQuery('#galleryModal').on('closed.zf.reveal',function() {
             jQuery('#galleryMain.carousel-main').flickity('destroy');
             jQuery('#galleyrNav.carousel-nav').flickity('destroy');
         });
-    });
+
 
 </script>

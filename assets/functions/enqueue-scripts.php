@@ -3,7 +3,7 @@ function site_scripts() {
   global $wp_styles; // Call global $wp_styles variable to add conditional wrapper around ie stylesheet the WordPress way
 
   // Add Flickity to the mix
-  wp_enqueue_script('flickity', get_template_directory_uri() . '/node_modules/flickity/dist/flickity.pkgd.min.js', array('jquery'), null, true);
+  wp_enqueue_script('flickity', get_template_directory_uri() . '/node_modules/flickity/dist/flickity.pkgd.js', array('jquery'), null, true);
 
   // Don't forget Flickity's stylesheet
   wp_enqueue_style( 'flickity-css', get_template_directory_uri() . '/node_modules/flickity/css/flickity.css', array(), '', 'all' );
@@ -22,7 +22,7 @@ function site_scripts() {
 
     // Adding Foundation scripts file in the footer
     wp_enqueue_script( 'foundation-js', get_template_directory_uri() . '/assets/js/foundation.js', array( 'jquery' ), '6.2', true );
-    
+
     // uncomment the following line to load Foundation via CDN instead
     // wp_enqueue_script('foundation-js', 'https://cdn.jsdelivr.net/foundation/6.2.1/foundation.min.js', array('jquery'), '6.2', true);
 
