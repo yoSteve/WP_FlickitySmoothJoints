@@ -4,6 +4,7 @@
 <div class="top-bar" id="top-bar-menu">
 	<div class="top-bar-left float-left">
 		<ul class="menu">
+			<li><a href="<?php echo home_url(); ?>"><?php the_custom_logo(); ?></a></li>
 			<li><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></li>
 		</ul>
 	</div>

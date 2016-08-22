@@ -35,6 +35,9 @@ require_once(get_template_directory().'/assets/functions/cpts/custom-post-types.
 // Register Built-in Plugins
 require_once(get_template_directory().'/assets/plugins/add-plugins.php');
 
+// Register Custom Logo
+require_once(get_template_directory().'/assets/functions/custom-logo.php');
+
 // Register Custom functions
 require_once(get_template_directory().'/assets/functions/custom-functions.php');
 
