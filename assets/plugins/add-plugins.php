@@ -3,9 +3,11 @@
 
 // Include ACF (Advanced Custom Fields)
 if( !class_exists('Acf') ) {
-    define( 'ACF_LITE' , false ); // change this to TRUE to hide ACF from client
-    include_once('acf/acf.php' );
+    define( 'ACF' , false ); // change this to TRUE to hide ACF from client
+    include_once( get_template_directory() . '/assets/plugins/acf/acf.php' );
 }
+
+
 
 // Include Github Updater
 if( !class_exists('Fragen\\GitHub_Updater\\Base') ) {

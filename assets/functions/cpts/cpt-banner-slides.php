@@ -56,144 +56,148 @@ function banner_slide_cpt() {
 }
 add_action( 'init', 'banner_slide_cpt', 0 );
 
-if(function_exists("register_field_group"))
-{
-	register_field_group(array (
-		'id' => 'acf_banner-slide-alignment',
-		'title' => 'Slide Content Alignment',
-		'fields' => array (
-			array (
-				'key' => 'field_5762119e23edd',
-				'label' => 'Content Alignment',
-				'name' => 'align_content',
-				'type' => 'radio',
-				'instructions' => 'Where do you want to align the content of this Banner Slide?',
-				'choices' => array (
-					'left' => 'Left',
-					'center' => 'Center',
-					'right' => 'Right',
-				),
-				'other_choice' => 0,
-				'save_other_choice' => 0,
-				'default_value' => 'center',
-				'layout' => 'horizontal',
-			),
-		),
-		'location' => array (
-			array (
+add_action('acf/register_fields', 'register_banner_slides_fields');
+
+function register_banner_slides_fields() {
+	if(function_exists("register_field_group")) {
+		register_field_group(array (
+			'id' => 'acf_banner-slide-alignment',
+			'title' => 'Slide Content Alignment',
+			'fields' => array (
 				array (
-					'param' => 'post_type',
-					'operator' => '==',
-					'value' => 'banner_slide',
-					'order_no' => 0,
-					'group_no' => 0,
-				),
-			),
-		),
-		'options' => array (
-			'position' => 'side',
-			'layout' => 'default',
-			'hide_on_screen' => array (
-				0 => 'permalink',
-				1 => 'excerpt',
-				2 => 'custom_fields',
-				3 => 'discussion',
-				4 => 'comments',
-				5 => 'revisions',
-				6 => 'slug',
-				7 => 'author',
-				8 => 'categories',
-				9 => 'send-trackbacks',
-			),
-		),
-		'menu_order' => 0,
-	));
-	register_field_group(array (
-		'id' => 'acf_action-button',
-		'title' => 'Action Button',
-		'fields' => array (
-			array (
-				'key' => 'field_576215207762f',
-				'label' => 'Does this slide have an Action Button?',
-				'name' => 'has_action_button',
-				'type' => 'radio',
-				'choices' => array (
-					'yes' => 'Yes',
-					'no' => 'No',
-				),
-				'other_choice' => 0,
-				'save_other_choice' => 0,
-				'default_value' => 'no',
-				'layout' => 'horizontal',
-			),
-			array (
-				'key' => 'field_5762156577630',
-				'label' => 'Button Label',
-				'name' => 'button_label',
-				'type' => 'text',
-				'instructions' => 'Put your button text here.',
-				'conditional_logic' => array (
-					'status' => 1,
-					'rules' => array (
-						array (
-							'field' => 'field_576215207762f',
-							'operator' => '==',
-							'value' => 'yes',
-						),
+					'key' => 'field_5762119e23edd',
+					'label' => 'Content Alignment',
+					'name' => 'align_content',
+					'type' => 'radio',
+					'instructions' => 'Where do you want to align the content of this Banner Slide?',
+					'choices' => array (
+						'left' => 'Left',
+						'center' => 'Center',
+						'right' => 'Right',
 					),
-					'allorany' => 'all',
+					'other_choice' => 0,
+					'save_other_choice' => 0,
+					'default_value' => 'center',
+					'layout' => 'horizontal',
 				),
-				'default_value' => '',
-				'placeholder' => '',
-				'prepend' => '',
-				'append' => '',
-				'formatting' => 'html',
-				'maxlength' => '',
 			),
-			array (
-				'key' => 'field_57621606c5a7c',
-				'label' => 'Button Url',
-				'name' => 'button_url',
-				'type' => 'text',
-				'instructions' => 'Put the button URL here (don\'t forget the http://)',
-				'conditional_logic' => array (
-					'status' => 1,
-					'rules' => array (
-						array (
-							'field' => 'field_576215207762f',
-							'operator' => '==',
-							'value' => 'yes',
-						),
-					),
-					'allorany' => 'all',
-				),
-				'default_value' => '',
-				'placeholder' => '',
-				'prepend' => '',
-				'append' => '',
-				'formatting' => 'html',
-				'maxlength' => '',
-			),
-		),
-		'location' => array (
-			array (
+			'location' => array (
 				array (
-					'param' => 'post_type',
-					'operator' => '==',
-					'value' => 'banner_slide',
-					'order_no' => 0,
-					'group_no' => 0,
+					array (
+						'param' => 'post_type',
+						'operator' => '==',
+						'value' => 'banner_slide',
+						'order_no' => 0,
+						'group_no' => 0,
+					),
 				),
 			),
-		),
-		'options' => array (
-			'position' => 'normal',
-			'layout' => 'default',
-			'hide_on_screen' => array (
+			'options' => array (
+				'position' => 'side',
+				'layout' => 'default',
+				'hide_on_screen' => array (
+					0 => 'permalink',
+					1 => 'excerpt',
+					2 => 'custom_fields',
+					3 => 'discussion',
+					4 => 'comments',
+					5 => 'revisions',
+					6 => 'slug',
+					7 => 'author',
+					8 => 'categories',
+					9 => 'send-trackbacks',
+				),
 			),
-		),
-		'menu_order' => 1,
-	));
+			'menu_order' => 0,
+		));
+		register_field_group(array (
+			'id' => 'acf_action-button',
+			'title' => 'Action Button',
+			'fields' => array (
+				array (
+					'key' => 'field_576215207762f',
+					'label' => 'Does this slide have an Action Button?',
+					'name' => 'has_action_button',
+					'type' => 'radio',
+					'choices' => array (
+						'yes' => 'Yes',
+						'no' => 'No',
+					),
+					'other_choice' => 0,
+					'save_other_choice' => 0,
+					'default_value' => 'no',
+					'layout' => 'horizontal',
+				),
+				array (
+					'key' => 'field_5762156577630',
+					'label' => 'Button Label',
+					'name' => 'button_label',
+					'type' => 'text',
+					'instructions' => 'Put your button text here.',
+					'conditional_logic' => array (
+						'status' => 1,
+						'rules' => array (
+							array (
+								'field' => 'field_576215207762f',
+								'operator' => '==',
+								'value' => 'yes',
+							),
+						),
+						'allorany' => 'all',
+					),
+					'default_value' => '',
+					'placeholder' => '',
+					'prepend' => '',
+					'append' => '',
+					'formatting' => 'html',
+					'maxlength' => '',
+				),
+				array (
+					'key' => 'field_57621606c5a7c',
+					'label' => 'Button Url',
+					'name' => 'button_url',
+					'type' => 'text',
+					'instructions' => 'Put the button URL here (don\'t forget the http://)',
+					'conditional_logic' => array (
+						'status' => 1,
+						'rules' => array (
+							array (
+								'field' => 'field_576215207762f',
+								'operator' => '==',
+								'value' => 'yes',
+							),
+						),
+						'allorany' => 'all',
+					),
+					'default_value' => '',
+					'placeholder' => '',
+					'prepend' => '',
+					'append' => '',
+					'formatting' => 'html',
+					'maxlength' => '',
+				),
+			),
+			'location' => array (
+				array (
+					array (
+						'param' => 'post_type',
+						'operator' => '==',
+						'value' => 'banner_slide',
+						'order_no' => 0,
+						'group_no' => 0,
+					),
+				),
+			),
+			'options' => array (
+				'position' => 'normal',
+				'layout' => 'default',
+				'hide_on_screen' => array (
+				),
+			),
+			'menu_order' => 1,
+		));
+	}
 }
+
 
 ?>
