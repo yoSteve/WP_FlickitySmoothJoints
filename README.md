@@ -1,4 +1,4 @@
-Currently using Foundation 6.2.1
+WP_FlickitySmoothJoints is a Wordpress Starter Theme that combines Flickity and SmoothState into the popular JointsWP starter theme.
 
 ### What is Flickity?
 Easy to use and fun to flick, Flickity by Metafizzy makes flickable carousels, galleries, and sliders that are responsive and easy to implement, and feel lively and effortless. http://flickity.metafizzy.co/
@@ -10,6 +10,8 @@ smoothState.js is a jQuery plugin that progressively enhances page loads to give
 JointsWP is a blank WordPress theme built with Foundation 6, giving you all the power and flexibility you need to build complex, mobile friendly websites without having to start from scratch.
 
 Starting its humble life as a fork of the popular theme Bones, JointsWP is now the foundation of thousands of websites across the globe.
+
+Currently using Foundation 6.2.1
 
 ### What comes with JointsWP?
 JointsWP comes pre-baked with all of the great features that are found in the Foundation framework – simply put, if it works in Foundation, it will work in JointsWP. The theme also includes:
